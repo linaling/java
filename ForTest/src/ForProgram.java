@@ -20,13 +20,16 @@ public class ForProgram {
 
 		System.out.println("점수 5개를 입력하세요 : ");
 
-		int num1, num2, num3, num4, num5;
-		num1 = input.nextInt();
-		num2 = input.nextInt();
-		num3 = input.nextInt();
-		num4 = input.nextInt();
-		num5 = input.nextInt();
-		int sum = num1 + num2 + num3 + num4 + num5;
+		int[] nums = new int[5];
+		int sum = 0;
+		
+		for( int i = 0; i < 5; i++ ) {
+			
+			nums[i] = input.nextInt();
+			sum += nums[i];
+			
+		}
+	
 		double average =  sum / 5.0;
 		
 		
