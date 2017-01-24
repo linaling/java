@@ -7,7 +7,7 @@ public class Student {
 	private String name = "최리나";
 	private String schoolName = "ktds";
 	private int grade = 2;
-	private String phoneNumber = "01071444074";
+	private int phoneNumber = 01071444074;
 	
 	// instance field에 대해서 setter 생성
 	
@@ -28,7 +28,7 @@ public class Student {
 		this.grade = grade;
 	}
 	
-	public void setPhoneNumber( String phoneNumber ) {
+	public void setPhoneNumber( int phoneNumber ) {
 		this.phoneNumber = phoneNumber;
 	}
 	

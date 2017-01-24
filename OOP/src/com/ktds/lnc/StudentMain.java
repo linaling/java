@@ -12,10 +12,14 @@ public class StudentMain {
 		cln.setName("바보");
 		cln.study();
 		cln.setName("바바바");
-		
 		cln.study();
-		cln.putOn();
-		cln.writeDown();
+		
+		
+		Student sjm = new Student();
+		sjm.setName("손진무");
+		sjm.setGrade(2);
+		sjm.setPhoneNumber(01000000123);
+		
 		
 	}
 }
