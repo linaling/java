@@ -1,5 +1,7 @@
 package com.ktds.ln.buyer;
 
+import java.util.Scanner;
+
 import com.ktds.ln.machine.Machine;
 
 public class Buyer {
@@ -13,7 +15,10 @@ public class Buyer {
 
 	public Buyer( int money, int quantity ) {
 		
-		System.out.println("구매자를 생성합니다.");
+		System.out.println("***************");
+		System.out.println("구매자가 왔습니다.");
+		System.out.println("***************");
+		
 		setMoney(money);
 		setQuantityOfCoke(quantity);//바꾸기
 		
@@ -51,25 +56,21 @@ public class Buyer {
 	public int getMoney() {
 		return this.money;
 	}
+	
 	// method
-	public void select( int productNum ) {
-		switch( productNum ) {
-		case 1 : 
-			
-			break;
-		case 2 : 
-			break;
-		case 3 :
-			break;
-		}
-		
+	public int selectMenu() {
+		Scanner input = new Scanner(System.in);
+		int menu = input.nextInt();
+		return menu;
 	}
 	
-	public void buyProduct( int productNum, Machine machine ) {
-				
-		machine.giveProduct(this, productNum);
+	
+	
+	public void buyProduct( Machine machine ) {
 		
-		switch( productNum ) {
+		machine.giveProduct(this);
+		
+		/*switch( productNum ) {
 		case 1 : 
 			System.out.println("콜라 구매");
 			//quantityOfCoke++;
@@ -82,7 +83,7 @@ public class Buyer {
 			System.out.println("코코아 구매");
 			//quantityOfCocoa++;
 			break;
-		}
+		}*/
 		
 	}
 	
