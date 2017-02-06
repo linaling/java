@@ -9,7 +9,5 @@ public class Hospital {
 		lina.treatment();
 		lina.prescription();
 		
-		
-		
 	}
 }

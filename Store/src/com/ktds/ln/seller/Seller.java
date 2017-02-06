@@ -1,31 +1,35 @@
 package com.ktds.ln.seller;
 import com.ktds.ln.buyer.Buyer;
-public class Seller {
+import com.ktds.ln.vo.BasketVO;
+public class Seller implements SellerInterface {
 	
 	/**
 	 * 상품 가격
 	 */
 	private final int PRICE = 2500;
 	
+	private BasketVO basketVO;
 	/**
 	 * 판매자가 가진 금액
 	 */
-	private int money;
+	/*private int money;
 	
-	/**
+	*//**
 	 * 판매자가 가진 상품의 개수
-	 */
-	private int productQuantity;
+	 *//*
+	private int productQuantity;*/
 	
 	public Seller(int productQuantity, int money) {
 		System.out.println("판매자를 생성합니다!");
 		
-		setMoney(money);
-		setProductQuantity(productQuantity);
+		basketVO = new BasketVO();
+		basketVO.setMoney(money);;
+		basketVO.setProductQuantity(productQuantity);
 		
 		System.out.println(this);
 	}
 	
+	/*
 	public void setMoney( int money ) {			
 		this.money = money;
 	}
@@ -40,28 +44,30 @@ public class Seller {
 	
 	public int getProductQuantity() {
 		return productQuantity;
-	}
+	}*/
 	/**
 	 * 판매하기
 	 */
+	@Override
 	public void sell( Buyer buyer ) {
 		
 		//판매자가 가진 상품의 개수에서 하나를 뺀다.
-		this.productQuantity--;
+		basketVO.minusProductQuantity();
 		
 		// 구매자는 돈을 지불한다.
 		buyer.pay(PRICE);
 		
 		//판매자가 가진 금액에서 상품의 가격만큼 더한다.
-		this.money += PRICE;
+		basketVO.plusMoney(PRICE);
 	}
 	
 	/**
 	 * 재고 파악하기
 	 * @return : boolean 재고가 있으면 false, 재고가 없으면 true
 	 */
+	@Override
 	public boolean isSoldOut() {
-		boolean isSoldOut = this.productQuantity == 0;
+		boolean isSoldOut = basketVO.getProductQuantity() == 0;
 		return isSoldOut;
 	}
 	
@@ -72,7 +78,7 @@ public class Seller {
 	public String toString() {
 		String message = 
 				String.format("판매자의 상품 개수 : %d, 판매자가 가진 금액 : %d", 
-				this.productQuantity, this.money);
+				basketVO.getProductQuantity(), basketVO.getMoney());
 		return message;
 	}
 }
